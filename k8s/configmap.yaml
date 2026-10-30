@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  namespace: tp-deploiement
+data:
+  MYSQL_DATABASE: demo
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: tp-deploiement
+data:
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/demo
+  SPRING_DATASOURCE_USERNAME: root
+  MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED: "true"
